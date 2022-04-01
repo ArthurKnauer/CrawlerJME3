@@ -1,0 +1,21 @@
+MaterialDef Clear {
+
+    MaterialParameters {
+    }
+
+    Technique {
+        VertexShader GLSL330:   MatDefs/LPV/Clear.vert
+        GeometryShader GLSL330: MatDefs/LPV/Clear.geom
+        FragmentShader GLSL330: MatDefs/LPV/Clear.frag   
+
+        WorldParameters {
+        }
+
+        RenderState {
+            FaceCull Off
+            DepthTest Off
+            DepthWrite Off
+            ColorWrite On
+        }
+    }
+}

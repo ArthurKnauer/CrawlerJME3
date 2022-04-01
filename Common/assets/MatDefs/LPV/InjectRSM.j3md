@@ -1,0 +1,33 @@
+MaterialDef InjectRSM {
+
+    MaterialParameters {
+        Texture2D PositionMap
+        Texture2D NormalMap
+        Texture2D ColorMap
+
+        Vector3 LPVMinPos
+        Vector3 LPVScale
+        Vector3 LPVCellSize
+        Float   LPVTextureDepthHalved
+		Float   RSMArea
+		Float	FluxScale
+		Boolean	UseCosLobe
+    }
+
+    Technique {
+        VertexShader GLSL330:   MatDefs/LPV/InjectRSM.vert
+        FragmentShader GLSL330: MatDefs/LPV/InjectRSM.frag
+        GeometryShader GLSL330: MatDefs/LPV/InjectRSM.geom
+
+        WorldParameters {
+        }
+
+        RenderState {
+            FaceCull Off
+            DepthTest Off
+            DepthWrite Off
+            ColorWrite On
+            Blend Additive
+        }
+    }
+}

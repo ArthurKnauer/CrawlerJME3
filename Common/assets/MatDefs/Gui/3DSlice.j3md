@@ -1,0 +1,20 @@
+MaterialDef Default 3DSlice {
+
+    MaterialParameters {
+        Texture3D Texture
+        Float  SliceCoord
+    }
+
+    Technique {
+        VertexShader GLSL330:   MatDefs/Gui/3DSlice.vert
+        FragmentShader GLSL330: MatDefs/Gui/3DSlice.frag
+
+        WorldParameters {
+            WorldViewProjectionMatrix
+        }
+    }
+
+    Technique {
+    }
+
+}

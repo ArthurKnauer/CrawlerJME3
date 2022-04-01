@@ -1,0 +1,32 @@
+MaterialDef Propagate {
+
+    MaterialParameters {
+        Texture3D LPVRed
+        Texture3D LPVGreen
+        Texture3D LPVBlue
+		Texture3D GV
+
+		Vector3 LPVCellSize
+		Boolean CheckOcclusion
+		Float	FluxScale
+
+        Float   LPVTextureDepth
+    }
+
+    Technique {
+        VertexShader GLSL330:   MatDefs/LPV/Propagate.vert
+        FragmentShader GLSL330: MatDefs/LPV/Propagate.frag
+        GeometryShader GLSL330: MatDefs/LPV/Propagate.geom
+
+        WorldParameters {
+        }
+
+        RenderState {
+            FaceCull Off
+            DepthTest Off
+            DepthWrite Off
+            ColorWrite On
+            Blend Additive
+        }
+    }
+}

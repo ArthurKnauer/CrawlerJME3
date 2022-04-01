@@ -1,0 +1,17 @@
+MaterialDef City {
+ 
+    MaterialParameters {
+        Texture2D   DiffuseMap
+        Vector3    SunLightDir
+    }
+ 
+    Technique {
+        VertexShader GLSL330:  MatDefs/City/City.vert
+        FragmentShader GLSL330: MatDefs/City/City.frag
+ 
+        WorldParameters {
+            WorldViewProjectionMatrix
+            WorldMatrix
+        }
+    }
+}

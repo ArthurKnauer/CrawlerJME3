@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty  xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
+
+	<useStyles filename="nifty-default-styles.xml" />
+	<useControls filename="nifty-default-controls.xml" />
+
+	<screen id="start" controller="cityplanner.test.gui.MainScreen">
+		<layer id="layer" childLayout="center" align="center" >
+
+			<panel childLayout="horizontal" align="center" valign="top">                  
+				<control name="button" id="planRoads" label="Plan Roads" focusable="false">
+					<interact onClick="onPlanRoads()" />
+				</control>  				
+			</panel>
+
+			<panel childLayout="horizontal" align="center" valign="bottom">                  
+				<control name="button" id="grid" label="Grid" focusable="false">
+					<interact onClick="onToggleGrid()" />
+				</control> 
+				<control name="button" id="populationMap" label="Population Map" focusable="false">
+					<interact onClick="onTogglePopulationMap()" />
+				</control> 	
+				<control name="button" id="sky" label="Sky" focusable="false">
+					<interact onClick="onToggleSky()" />
+				</control> 
+				<control name="button" id="worldPlane" label="WorldPlane" focusable="false">
+					<interact onClick="onToggleWorldPlane()" />
+				</control> 
+				<control name="button" id="plots" label="Roads" focusable="false">
+					<interact onClick="onToggleRoads()" />
+				</control> 
+				<control name="button" id="buildings" label="Buildings" focusable="false">
+					<interact onClick="onToggleBuildings()" />
+				</control> 
+				<control name="button" id="trees" label="Trees" focusable="false">
+					<interact onClick="onToggleTrees()" />
+				</control>
+				<control name="button" id="debugInfo" label="Debug Info" focusable="false">
+					<interact onClick="onToggleDebugInfo()" />
+				</control> 				
+			</panel>
+
+		</layer>
+	</screen>
+</nifty>

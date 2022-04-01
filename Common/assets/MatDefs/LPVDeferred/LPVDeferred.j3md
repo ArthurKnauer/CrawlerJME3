@@ -1,0 +1,53 @@
+MaterialDef LPVDeferred {
+
+    MaterialParameters {
+        Texture2D DiffuseMap
+		Texture2D NormalMap
+		Texture2D DepthMap
+        Texture2D ShadowMap
+
+        Texture2D FlashLight
+
+        Texture2D ShadowMapFL
+
+        Texture3D LPVRed
+        Texture3D LPVGreen
+        Texture3D LPVBlue
+
+		Vector3 LPVMinPos
+        Vector3 LPVScale
+		Vector3 LPVCellSize
+
+	    Matrix4 LightViewProjectionMatrix
+		Vector3 LightDirNeg
+
+        Matrix4 LightViewProjectionMatrixFL
+		Vector3 LightDirNegFL
+        Vector3 LightPosFL
+
+		Float Time
+		Float LPVFluxScale
+
+		Vector3 FrustumLowerLeftRay
+		Vector3 FrustumLowerRightRay
+		Vector3 FrustumUpperRightRay
+		Vector3 FrustumUpperLeftRay
+		Vector2 ProjectionValues;
+		Vector3 CameraPos
+    }
+
+    Technique {
+        VertexShader GLSL330:   MatDefs/LPVDeferred/LPVDeferred.vert
+        FragmentShader GLSL330: MatDefs/LPVDeferred/LPVDeferred.frag
+
+		RenderState {
+            FaceCull Off
+            DepthTest On
+            DepthWrite On
+            ColorWrite On
+        }
+
+        WorldParameters {
+        }
+    }
+}

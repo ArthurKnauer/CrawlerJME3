@@ -1,0 +1,33 @@
+MaterialDef GVProbed {
+
+    MaterialParameters {
+        Texture3D GV
+		Texture3D LPVRed
+        Texture3D LPVGreen
+        Texture3D LPVBlue
+
+        Vector3 GVMinPos
+		Vector3 LPVMinPos
+        Vector3 GVScale
+
+		Boolean ProbeLPV
+		Float LPVFluxScale
+    }
+
+    Technique {
+        VertexShader GLSL330:   MatDefs/GVProbed/GVProbed.vert
+        FragmentShader GLSL330: MatDefs/GVProbed/GVProbed.frag
+
+		RenderState {
+            FaceCull Back
+            DepthTest On
+            DepthWrite On
+            ColorWrite On
+        }
+
+        WorldParameters { 
+            WorldViewProjectionMatrix
+            WorldMatrix          
+        }
+    }
+}

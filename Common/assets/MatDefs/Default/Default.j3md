@@ -1,0 +1,79 @@
+MaterialDef Default {
+
+    MaterialParameters {
+        Boolean Color
+        Vector3 Color
+    }
+
+	 Technique {
+        VertexShader GLSL330:   MatDefs/Default/Default.vert
+        FragmentShader GLSL330: MatDefs/Default/Default.frag
+
+        WorldParameters {
+			WorldViewProjectionMatrix
+            WorldMatrix
+        }
+
+        RenderState {
+            FaceCull Back
+            DepthTest On
+            DepthWrite On
+            ColorWrite On
+        }
+    }
+
+	 Technique PreDeferred {
+        VertexShader GLSL330:   MatDefs/Default/Default.vert
+        FragmentShader GLSL330: MatDefs/Default/Default.frag
+
+        WorldParameters {
+			WorldViewProjectionMatrix
+            WorldMatrix
+        }
+
+        Defines {
+            COLOR : Color
+        }   
+
+        RenderState {
+            FaceCull Back
+            DepthTest On
+            DepthWrite On
+            ColorWrite On
+        }
+    }
+
+    Technique RSM {
+        VertexShader GLSL100:   Shaders/RSM.vert
+        FragmentShader GLSL100: Shaders/RSM.frag
+
+        WorldParameters {
+            WorldViewProjectionMatrix
+            WorldMatrix
+			CameraDirection
+        }
+
+        RenderState {
+            FaceCull Off
+            DepthTest On
+            DepthWrite On
+            ColorWrite On
+        }
+    }
+
+     Technique ShadowMap {
+        VertexShader GLSL100 :   Shaders/ShadowMap.vert
+        FragmentShader GLSL100 : Shaders/ShadowMap.frag
+
+        WorldParameters {
+            WorldViewProjectionMatrix
+        }
+
+        RenderState {
+            FaceCull Front
+            DepthTest On
+            DepthWrite On
+            ColorWrite Off
+        }
+    }
+}

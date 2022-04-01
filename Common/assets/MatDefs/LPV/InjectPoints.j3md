@@ -1,0 +1,30 @@
+MaterialDef InjectPoints {
+
+    MaterialParameters {
+        Vector3 LPVMinPos
+        Vector3 LPVScale
+        Vector3 LPVCellSize
+        Float   LPVTextureDepthHalved
+		Matrix4 WorldMatrix
+
+		Float	FluxScale
+		Boolean	UseCosLobe
+    }
+
+    Technique {
+        VertexShader GLSL330:   MatDefs/LPV/InjectPoints.vert
+        FragmentShader GLSL330: MatDefs/LPV/InjectPoints.frag
+        GeometryShader GLSL330: MatDefs/LPV/InjectPoints.geom
+
+        WorldParameters {
+        }
+
+        RenderState {
+            FaceCull Off
+            DepthTest Off
+            DepthWrite Off
+            ColorWrite On
+            Blend Additive
+        }
+    }
+}

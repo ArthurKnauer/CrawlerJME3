@@ -1,0 +1,99 @@
+MaterialDef LPVShaded {
+
+    MaterialParameters {
+        Boolean NormalMap
+        Boolean AmbientOcclusionMap
+
+        Texture2D DiffuseMap
+        Texture2D NormalMap
+        Texture2D AmbientOcclusionMap
+        Texture2D ShadowMap
+        Texture3D LPVRed
+        Texture3D LPVGreen
+        Texture3D LPVBlue
+
+        Texture3D GV
+
+        Matrix4 LightViewProjectionMatrix
+
+        Matrix3 TextureTransform
+
+        Vector3 LightDirNeg
+        Vector3 LPVMinPos
+        Vector3 LPVScale
+    }
+
+    Technique {
+        VertexShader GLSL100:   MatDefs/LPVShaded/LPVShaded.vert
+        FragmentShader GLSL100: MatDefs/LPVShaded/LPVShaded.frag
+
+		RenderState {
+            FaceCull Back
+            DepthTest On
+            DepthWrite On
+            ColorWrite On
+        }
+
+        WorldParameters {
+            WorldViewProjectionMatrix
+            WorldMatrix
+        }
+    }
+
+	 Technique PreDeferred {
+        VertexShader GLSL330:   MatDefs/LPVShaded/PreDeferred.vert
+        FragmentShader GLSL330: MatDefs/LPVShaded/PreDeferred.frag
+
+        WorldParameters {
+			WorldViewProjectionMatrix
+            WorldMatrix
+            NormalMatrix
+        }
+
+        Defines {
+            NORMALMAP : NormalMap
+            AMBIENTOCCLUSIONMAP : AmbientOcclusionMap
+        }   
+
+        RenderState {
+            FaceCull Back
+            DepthTest On
+            DepthWrite On
+            ColorWrite On
+        }
+    }
+
+    Technique RSM {
+        VertexShader GLSL100:   MatDefs/LPVShaded/RSM.vert
+        FragmentShader GLSL100: MatDefs/LPVShaded/RSM.frag
+
+        WorldParameters {
+            WorldViewProjectionMatrix
+            WorldMatrix
+			CameraDirection
+        }
+
+        RenderState {
+            FaceCull Off
+            DepthTest On
+            DepthWrite On
+            ColorWrite On
+        }
+    }
+
+     Technique ShadowMap {
+        VertexShader GLSL100 :   MatDefs/LPVShaded/ShadowMap.vert
+        FragmentShader GLSL100 : MatDefs/LPVShaded/ShadowMap.frag
+
+        WorldParameters {
+            WorldViewProjectionMatrix
+        }
+
+        RenderState {
+            FaceCull Front
+            DepthTest On
+            DepthWrite On
+            ColorWrite Off
+        }
+    }
+}

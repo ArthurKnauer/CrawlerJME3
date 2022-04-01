@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nifty  xmlns="http://nifty-gui.sourceforge.net/nifty-1.3.xsd"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://nifty-gui.sourceforge.net/nifty-1.3.xsd http://nifty-gui.sourceforge.net/nifty-1.3.xsd">
+
+    <useStyles filename="nifty-default-styles.xml" />
+    <useControls filename="nifty-default-controls.xml" />
+
+    <screen id="start"  controller="modelcompiler.gui.MainScreen">
+        <layer id="layer" childLayout="center" align="center" >
+
+            <panel childLayout="horizontal" align="center" valign="top">                  
+                <control name="button" id="import" label="Import" focusable="false">
+                    <interact onClick="onImportModel()" />
+                </control>  
+				
+                <control name="button" id="open" label="Open" focusable="false">
+                    <interact onClick="onOpenModel()" />
+                </control> 
+
+                <control name="button" id="save" label="Save" focusable="false">
+                    <interact onClick="onSaveModel()" />
+                </control> 
+
+                <control name="button" id="loadMaterial" label="Load Material" focusable="false">
+                    <interact onClick="onLoadMaterial()" />
+                </control>					
+            </panel>
+			
+            <panel childLayout="horizontal" align="center" valign="bottom">                  
+                <control name="button" id="centerExtents" label="Center Extents" focusable="false">
+                    <interact onClick="onCenterExtents()" />
+                </control>	
+                
+                <control name="button" id="findShelves" label="Find Shelves" focusable="false">
+                    <interact onClick="onFindShelves()" />
+                </control>			
+
+				<control name="checkbox" id="showShelves"  />				
+            </panel>
+
+            <panel childLayout="vertical" id="animationPanel" align="left" valign="top" halign="left" width="150"> 
+                <text text=" Animations:" style="nifty-label" textHAlign="left" />
+
+                <control name="dropDown" id="animations" displayItems="16" focusable="false">
+                </control>  
+            </panel>          
+        </layer>
+    </screen>
+</nifty>

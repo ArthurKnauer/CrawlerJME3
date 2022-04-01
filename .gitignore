@@ -1,0 +1,6 @@
+/Crawler/assets
+/SkyBox/assets
+/Common/assets/Textures
+/CityPlanner/assets/Textures/facades/*.dds
+/CityPlanner/assets/Common/MatDefs/Water/Textures/*.jpg
+/ModelCompiler/assets/Sounds/*.wav

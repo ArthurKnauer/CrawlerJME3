@@ -1,0 +1,31 @@
+MaterialDef MatDefs/LPV/GeometryInject {
+
+    MaterialParameters {
+		Float GVTextureDepthHalved
+		Vector3 GVMinPos
+		Vector3 GVScale
+		Vector3 GVCellSize
+		Matrix4	WorldMatrix
+		Float	SHScale
+    }
+
+    Technique {
+        VertexShader GLSL400:			MatDefs/LPV/GeometryInject.vert
+        TessControlShader GLSL400:		MatDefs/LPV/GeometryInject.tsctrl
+		TessEvaluationShader GLSL400:	MatDefs/LPV/GeometryInject.tseval
+		GeometryShader GLSL400:			MatDefs/LPV/GeometryInject.geom
+		FragmentShader GLSL400:			MatDefs/LPV/GeometryInject.frag
+
+		RenderState {
+            FaceCull Off
+            DepthTest Off
+            DepthWrite Off
+            ColorWrite On
+			Blend Additive
+        }
+
+        WorldParameters {            
+            
+        }
+    }
+}
